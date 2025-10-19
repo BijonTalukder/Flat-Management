@@ -1,3 +1,12 @@
+import type { ReactNode } from "react";
+import type { AnyObjectSchema } from "yup";
+
+import type {
+
+  FieldValues,
+  SubmitHandler,
+  DefaultValues,
+} from "react-hook-form";
 export interface BaseFormFieldProps {
   name: string;
   label?: string;
@@ -29,4 +38,10 @@ export interface FormCheckboxProps extends BaseFormFieldProps {
 export interface FormTextAreaProps extends BaseFormFieldProps {
   placeholder?: string;
   rows?: number;
+}
+export interface ZFormProps<T extends FieldValues> {
+  children: ReactNode;
+  submitHandler: SubmitHandler<T>;
+  defaultValues?: DefaultValues<T>; 
+  schema?: AnyObjectSchema;
 }
